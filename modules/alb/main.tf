@@ -29,7 +29,7 @@ resource "aws_lb" "alb" {
   internal           = false
   load_balancer_type = "application"
   subnets            = var.public_subnets
-  security_groups    = [
+  security_groups = [
     aws_security_group.alb_sg.id,
     var.ssh_security_group_id
   ]
@@ -55,7 +55,7 @@ resource "aws_lb_listener" "https" {
   certificate_arn   = var.certificate_arn
 
   default_action {
-    type             = "fixed-response"
+    type = "fixed-response"
     fixed_response {
       content_type = "text/plain"
       message_body = "API backend placeholder"

@@ -21,3 +21,12 @@ variable "hosted_zone_id" {
   description = "Route53 Hosted Zone ID"
   type        = string
 }
+
+variable "alb" {
+  description = "ALB configuration including VPC settings"
+  type = object({
+    vpc_id                = string
+    public_subnets        = list(string)
+    ssh_security_group_id = string
+  })
+}

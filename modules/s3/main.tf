@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "website" {
-  bucket = "${var.site_subdomain}.${var.domain_name}"
+  bucket        = "${var.site_subdomain}.${var.domain_name}"
   force_destroy = true
 }
 

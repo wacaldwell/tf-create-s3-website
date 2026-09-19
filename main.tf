@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 # Include modules
 module "s3" {
   source         = "./modules/s3"
@@ -26,17 +22,14 @@ module "cloudfront" {
 }
 
 module "alb" {
-  source              = "./modules/alb"
-  alb_subdomain       = var.alb_subdomain
-  certificate_arn     = module.acm.certificate_arn
-  hosted_zone_id      = var.hosted_zone_id
-  domain_name         = var.domain_name
-  vpc_id              = "vpc-021ed2459953ad688"
-  public_subnets      = [
-    "subnet-087d4a11148279855",
-    "subnet-05a49ed7ef973b26f",
-  ]
-  ssh_security_group_id = "sg-01b2513b1f8443f0f"
+  source                = "./modules/alb"
+  alb_subdomain         = var.alb_subdomain
+  certificate_arn       = module.acm.certificate_arn
+  hosted_zone_id        = var.hosted_zone_id
+  domain_name           = var.domain_name
+  vpc_id                = var.alb.vpc_id
+  public_subnets        = var.alb.public_subnets
+  ssh_security_group_id = var.alb.ssh_security_group_id
 }
 
 module "dns" {

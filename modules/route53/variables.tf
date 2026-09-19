@@ -1,30 +1,34 @@
 variable "domain_name" {
-  type = string
+  description = "The domain name"
+  type        = string
 }
 
 variable "site_subdomain" {
-  type = string
+  description = "The subdomain for the website"
+  type        = string
 }
 
 variable "alb_subdomain" {
-  type = string
+  description = "The subdomain for the ALB"
+  type        = string
 }
 
 variable "cloudfront_domain_name" {
-  type    = string
-  default = ""
+  description = "The CloudFront distribution domain name"
+  type        = string
 }
 
 variable "alb_dns_name" {
-  type    = string
-  default = ""
+  description = "The ALB DNS name"
+  type        = string
 }
 
 variable "alb_zone_id" {
-  type    = string
-  default = ""
+  description = "The ALB zone ID"
+  type        = string
 }
 
 variable "hosted_zone_id" {
-  type = string
+  description = "The Route53 hosted zone ID"
+  type        = string
 }

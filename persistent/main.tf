@@ -5,11 +5,11 @@ module "s3" {
 }
 
 module "cert" {
-  source          = "../modules/cert"
-  domain_name     = var.domain_name
-  site_subdomain  = var.site_subdomain
-  alb_subdomain   = var.alb_subdomain
-  hosted_zone_id  = var.hosted_zone_id
+  source         = "../modules/cert"
+  domain_name    = var.domain_name
+  site_subdomain = var.site_subdomain
+  alb_subdomain  = var.alb_subdomain
+  hosted_zone_id = var.hosted_zone_id
 }
 
 module "route53" {
